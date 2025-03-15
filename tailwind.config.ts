@@ -101,7 +101,8 @@ export default {
 					to: { width: '100%' },
 				},
 				blink: {
-					'50%': { borderColor: 'transparent' },
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0' },
 				},
 			},
 			animation: {
@@ -114,6 +115,7 @@ export default {
 				'fade-right': 'fade-right 0.5s ease-out forwards',
 				'scan-line': 'scan-line 2s linear infinite',
 				'typing': 'typing 3.5s steps(40, end), blink .75s step-end infinite',
+				'blink': 'blink 1s step-end infinite',
 			},
 		}
 	},
