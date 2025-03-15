@@ -19,38 +19,39 @@ const Index = () => {
   const [searchResults, setSearchResults] = useState<any>(null);
   
   const handleSearch = async (formData: any) => {
+    if (!formData.email) {
+      toast("Please provide an email address to search for breaches", {
+        icon: <AlertTriangle className="h-4 w-4 text-amber-500" />
+      });
+      return;
+    }
+    
     setIsSearching(true);
     toast("Starting OSINT search...");
     
     try {
-      // For now, we're only searching email breaches
-      if (formData.email) {
-        const breachResults = await checkEmailBreaches(formData.email);
-        setSearchResults({
-          breachData: breachResults,
-          userData: formData
-        });
-        
-        if (breachResults.length > 0) {
-          toast("Search complete. Breaches found!", {
-            icon: <AlertTriangle className="h-4 w-4 text-amber-500" />
-          });
-        } else {
-          toast("Search complete. No breaches found.", {
-            icon: <Check className="h-4 w-4 text-green-500" />
-          });
-        }
-      } else {
-        toast("Please provide an email address to search for breaches", {
+      // Search for email breaches
+      const breachResults = await checkEmailBreaches(formData.email);
+      setSearchResults({
+        breachData: breachResults,
+        userData: formData
+      });
+      
+      if (breachResults.length > 0) {
+        toast(`Search complete. Found ${breachResults.length} breach${breachResults.length !== 1 ? 'es' : ''}!`, {
           icon: <AlertTriangle className="h-4 w-4 text-amber-500" />
         });
-        setSearchResults(null);
+      } else {
+        toast("Search complete. No breaches found.", {
+          icon: <Check className="h-4 w-4 text-green-500" />
+        });
       }
     } catch (error) {
       console.error("Error during search:", error);
       toast("Error during search. Please try again.", {
         icon: <AlertTriangle className="h-4 w-4 text-red-500" />
       });
+      setSearchResults(null);
     } finally {
       setIsSearching(false);
     }
