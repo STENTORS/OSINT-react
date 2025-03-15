@@ -95,11 +95,11 @@
   }
   
   .terminal-container {
-    @apply rounded-none border border-hacker/50 p-4 font-mono text-sm bg-black/80 text-hacker shadow-inner;
+    @apply rounded-none border border-hacker/50 p-0 font-mono text-sm bg-black/80 text-hacker shadow-inner;
   }
   
   .terminal-header {
-    @apply flex items-center gap-2 mb-2;
+    @apply mb-0 border-b border-hacker/30;
   }
   
   .terminal-circle {
@@ -121,6 +121,19 @@
 
   .matrix-character {
     @apply font-mono text-xs md:text-sm text-hacker/60 absolute animate-matrix-rain;
+  }
+  
+  .scanline {
+    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(0, 255, 0, 0) 0%,
+      rgba(0, 255, 0, 0) 50%,
+      rgba(0, 255, 0, 0.1) 50%,
+      rgba(0, 255, 0, 0) 52%
+    );
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
   }
 }
 
@@ -148,4 +161,20 @@
                 0 0 20px rgba(0, 255, 0, 0.1), 
                 0 0 30px rgba(0, 255, 0, 0.05);
   }
+  
+  .hacker-glow {
+    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7),
+                0 0 10px rgba(0, 255, 0, 0.5),
+                0 0 15px rgba(0, 255, 0, 0.3);
+  }
+  
+  .hacker-text::before {
+    content: "root@system:~$ ";
+    @apply text-hacker-light;
+  }
+}
+
+@keyframes scan {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
 }
