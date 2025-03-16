@@ -78,18 +78,6 @@
     @apply backdrop-blur-sm bg-black/70 border border-hacker/30 shadow-lg shadow-hacker/20;
   }
   
-  .cyber-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-cyber-blue/30 shadow-lg shadow-cyber-blue/20;
-  }
-  
-  .glitch-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-glitch-primary/30 shadow-lg shadow-glitch-primary/20;
-  }
-  
-  .retro-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-retro-brightBlue/30 shadow-lg shadow-retro-brightBlue/20;
-  }
-  
   .section-container {
     @apply w-full max-w-screen-xl mx-auto px-6 md:px-12;
   }
@@ -102,32 +90,8 @@
     @apply font-mono tracking-tight text-hacker;
   }
   
-  .cyber-text {
-    @apply font-mono tracking-tight text-cyber-blue;
-  }
-  
-  .glitch-text {
-    @apply font-mono tracking-tight text-glitch-primary;
-  }
-  
-  .retro-text {
-    @apply font-mono tracking-tight text-retro-brightGreen;
-  }
-  
   .typed-cursor {
     @apply inline-block w-2 h-4 ml-1 bg-hacker animate-blink;
-  }
-  
-  .typed-cursor-cyber {
-    @apply inline-block w-2 h-4 ml-1 bg-cyber-blue animate-blink;
-  }
-  
-  .typed-cursor-glitch {
-    @apply inline-block w-2 h-4 ml-1 bg-glitch-primary animate-blink;
-  }
-  
-  .typed-cursor-retro {
-    @apply inline-block w-2 h-4 ml-1 bg-retro-brightGreen animate-blink;
   }
   
   .terminal-container {
@@ -159,18 +123,6 @@
     @apply font-mono text-xs md:text-sm text-hacker/60 absolute animate-matrix-rain;
   }
   
-  .cyber-character {
-    @apply font-mono text-xs md:text-sm text-cyber-blue/60 absolute animate-matrix-rain;
-  }
-  
-  .glitch-character {
-    @apply font-mono text-xs md:text-sm text-glitch-primary/60 absolute animate-matrix-rain;
-  }
-  
-  .retro-character {
-    @apply font-mono text-xs md:text-sm text-retro-brightBlue/60 absolute animate-matrix-rain;
-  }
-  
   .scanline {
     @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
     background-image: repeating-linear-gradient(
@@ -179,45 +131,6 @@
       rgba(0, 255, 0, 0) 50%,
       rgba(0, 255, 0, 0.1) 50%,
       rgba(0, 255, 0, 0) 52%
-    );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
-  }
-  
-  .cyber-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(14, 165, 233, 0) 0%,
-      rgba(14, 165, 233, 0) 50%,
-      rgba(14, 165, 233, 0.1) 50%,
-      rgba(14, 165, 233, 0) 52%
-    );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
-  }
-  
-  .glitch-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(139, 100, 179, 0) 0%,
-      rgba(139, 100, 179, 0) 50%,
-      rgba(139, 100, 179, 0.1) 50%,
-      rgba(139, 100, 179, 0) 52%
-    );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
-  }
-  
-  .retro-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(85, 255, 85, 0) 0%,
-      rgba(85, 255, 85, 0) 50%,
-      rgba(85, 255, 85, 0.1) 50%,
-      rgba(85, 255, 85, 0) 52%
     );
     background-size: 100% 4px;
     animation: scan 8s linear infinite;
@@ -249,66 +162,15 @@
                 0 0 30px rgba(0, 255, 0, 0.05);
   }
   
-  .cyber-shadow {
-    box-shadow: 0 0 10px rgba(14, 165, 233, 0.2), 
-                0 0 20px rgba(14, 165, 233, 0.1), 
-                0 0 30px rgba(14, 165, 233, 0.05);
-  }
-  
-  .glitch-shadow {
-    box-shadow: 0 0 10px rgba(139, 100, 179, 0.2), 
-                0 0 20px rgba(139, 100, 179, 0.1), 
-                0 0 30px rgba(139, 100, 179, 0.05);
-  }
-  
-  .retro-shadow {
-    box-shadow: 0 0 10px rgba(85, 255, 85, 0.2), 
-                0 0 20px rgba(85, 255, 85, 0.1), 
-                0 0 30px rgba(85, 255, 85, 0.05);
-  }
-  
   .hacker-glow {
     text-shadow: 0 0 5px rgba(0, 255, 0, 0.7),
                 0 0 10px rgba(0, 255, 0, 0.5),
                 0 0 15px rgba(0, 255, 0, 0.3);
   }
   
-  .cyber-glow {
-    text-shadow: 0 0 5px rgba(14, 165, 233, 0.7),
-                0 0 10px rgba(14, 165, 233, 0.5),
-                0 0 15px rgba(14, 165, 233, 0.3);
-  }
-  
-  .glitch-glow {
-    text-shadow: 0 0 5px rgba(139, 100, 179, 0.7),
-                0 0 10px rgba(139, 100, 179, 0.5),
-                0 0 15px rgba(139, 100, 179, 0.3);
-  }
-  
-  .retro-glow {
-    text-shadow: 0 0 5px rgba(85, 255, 85, 0.7),
-                0 0 10px rgba(85, 255, 85, 0.5),
-                0 0 15px rgba(85, 255, 85, 0.3);
-  }
-  
   .hacker-text::before {
     content: "root@system:~$ ";
     @apply text-hacker-light;
-  }
-  
-  .cyber-text::before {
-    content: "admin@network:~$ ";
-    @apply text-cyber-blue;
-  }
-  
-  .glitch-text::before {
-    content: "ghost@machine:~$ ";
-    @apply text-glitch-primary;
-  }
-  
-  .retro-text::before {
-    content: "user@dos:~$ ";
-    @apply text-retro-brightGreen;
   }
 }
 
