@@ -11,35 +11,27 @@ type BreachData = {
   [key: string]: any;
 };
 
-// Replace Puppeteer with fetch API to work in browsers
 export const checkEmailBreaches = async (email: string): Promise<BreachData[]> => {
   console.log("Checking breaches for email:", email);
   
   try {
     toast("Connecting to breach database...");
     
-    // Use Have I Been Pwned API-compatible endpoint
-    // This is a public API that works similarly to HIBP
-    const hashPart = email.split('@')[0]; // Get username part for privacy
-    
-    // Use the Breached Sites API from haveibeenpwned - only showing public breaches
+    // This is a public API endpoint for breaches
     const apiUrl = `https://haveibeenpwned.com/api/v3/breaches`;
     
     // Start loading the data
-    const breachesPromise = fetch(apiUrl)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`API request failed with status ${response.status}`);
-        }
-        return response.json();
-      });
+    const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
     
     // Add a slight delay to simulate processing
     await new Promise(resolve => setTimeout(resolve, 1500));
     toast("Scanning breach records...");
     
-    // Await the API response
-    const allBreaches = await breachesPromise;
+    const allBreaches = await response.json();
     
     // Filter breaches based on email pattern to simulate matching
     // In a real API, the service would do this server-side
