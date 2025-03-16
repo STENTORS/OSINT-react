@@ -8,7 +8,7 @@ This project is a cybersecurity-themed OSINT (Open Source Intelligence) research
 - React
 - shadcn-ui
 - Tailwind CSS
-- Puppeteer for web scraping
+- Public APIs for breach data
 
 ## Setup Instructions
 
@@ -44,32 +44,32 @@ yarn dev
 http://localhost:8080
 ```
 
-### Backend Setup
+## How It Works
 
-This project uses Puppeteer for headless browser automation to scrape breach data. The "backend" functionality is built into the frontend code in `src/lib/osintService.ts`.
+The application fetches breach data using the following approach:
 
-For local development:
-- The app will use mock data by default in development mode
-- If you want to test the actual scraping functionality:
-  1. Make sure you have a good internet connection
-  2. Enter a valid email in the search form
-  3. The app will attempt to scrape breach data using Puppeteer
+1. When a user searches for an email, the app makes an API request to the Have I Been Pwned public API
+2. The app processes the response to determine if the email has been found in any breaches
+3. Results are displayed in a user-friendly format in the Results Panel
+4. If the API request fails, the app falls back to predefined mock data
 
-### Notes on Puppeteer
+## Color Themes
 
-- Puppeteer is a Node.js library that provides a high-level API to control Chrome/Chromium
-- It runs headless by default (no browser UI)
-- For this project, it's bundled with the frontend code for simplicity
-- In a production environment, this functionality should be moved to a proper backend service
+The application includes four cybersecurity-themed color schemes:
+- **Hacker** - Classic green terminal colors
+- **Cyber** - Blue-focused cyberpunk aesthetic
+- **Glitch** - Purple/pink vaporwave style
+- **Retro** - Old-school terminal colors
+
+You can switch between themes using the theme switcher in the top-right corner of the application.
 
 ## Features
 
-- Email breach checking
+- Email breach checking via public APIs
 - Animated terminal interface
-- Cyberpunk/hacker aesthetic with multiple color themes
+- Multiple cyberpunk/hacker aesthetic color themes
 - Responsive design
 
 ## Disclaimer
 
-This tool is for educational purposes only. Web scraping may violate terms of service of websites. Always ensure you have permission before scraping any website.
-
+This tool is for educational purposes only. The breach data is sourced from public APIs and may not represent real breaches. Always ensure you have permission before searching for email addresses that don't belong to you.
