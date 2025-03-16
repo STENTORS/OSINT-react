@@ -41,23 +41,50 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
     }
   }, [isSearching, searchParams]);
 
+  // Matrix background effect
+  const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$#@*&^%!".split("");
+  const matrixCharacters = Array.from({ length: 30 }, (_, i) => ({
+    id: i,
+    char: matrixChars[Math.floor(Math.random() * matrixChars.length)],
+    x: Math.random() * 100,
+    duration: 2 + Math.random() * 3,
+    delay: Math.random() * 2
+  }));
+
   return (
-    <div className="terminal-container relative h-[256px] overflow-hidden">
+    <div className="terminal-container relative h-[256px] overflow-hidden terminal-shadow">
       <div className="terminal-header">
-        <div className="terminal-circle bg-red-400"></div>
-        <div className="terminal-circle bg-amber-400"></div>
-        <div className="terminal-circle bg-green-400"></div>
-        <span className="text-xs text-muted-foreground ml-2">terminal</span>
+        <div className="terminal-circle bg-red-600"></div>
+        <div className="terminal-circle bg-amber-600"></div>
+        <div className="terminal-circle bg-hacker-dark"></div>
+        <span className="text-xs text-hacker ml-2">terminal@osint:~#</span>
       </div>
       
-      <div className="h-[220px] overflow-y-auto pr-2">
+      {/* Matrix background effect */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+        {matrixCharacters.map((char) => (
+          <div 
+            key={char.id}
+            className="matrix-character"
+            style={{
+              left: `${char.x}%`,
+              animationDuration: `${char.duration}s`,
+              animationDelay: `${char.delay}s`
+            }}
+          >
+            {char.char}
+          </div>
+        ))}
+      </div>
+      
+      <div className="h-[220px] overflow-y-auto pr-2 relative z-10">
         {lines.map((line, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-xs md:text-sm mb-1.5"
+            className="text-xs md:text-sm mb-1.5 text-hacker"
           >
             {line}
           </motion.div>
@@ -70,13 +97,13 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             transition={{ duration: 0.3 }}
             className="flex items-center"
           >
-            <span className="text-xs md:text-sm">$ </span>
-            <span className="ml-1 h-3 w-3 bg-primary animate-pulse"></span>
+            <span className="text-xs md:text-sm text-hacker">$ </span>
+            <span className="ml-1 h-3 w-3 bg-hacker animate-pulse"></span>
           </motion.div>
         )}
       </div>
       
-      <div className="absolute inset-0 pointer-events-none border-t border-border/50 animate-scan-line opacity-10"></div>
+      <div className="absolute inset-0 pointer-events-none border-t border-hacker/20 animate-scan-line opacity-10"></div>
     </div>
   );
 };
