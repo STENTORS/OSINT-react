@@ -1,40 +1,42 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 10%;
-    --foreground: 120 100% 50%;
+    --background: 270 100% 6%;
+    --foreground: 289 100% 77%;
 
-    --card: 0 0% 15%;
-    --card-foreground: 120 100% 60%;
+    --card: 270 100% 10%;
+    --card-foreground: 289 100% 77%;
 
-    --popover: 0 0% 15%;
-    --popover-foreground: 120 100% 50%;
+    --popover: 270 100% 10%;
+    --popover-foreground: 289 100% 77%;
 
-    --primary: 120 100% 50%;
-    --primary-foreground: 0 0% 10%;
+    --primary: 289 100% 50%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 20%;
-    --secondary-foreground: 120 100% 70%;
+    --secondary: 270 100% 15%;
+    --secondary-foreground: 180 100% 50%;
 
-    --muted: 0 0% 25%;
-    --muted-foreground: 120 60% 60%;
+    --muted: 270 100% 15%;
+    --muted-foreground: 289 70% 60%;
 
-    --accent: 120 100% 30%;
-    --accent-foreground: 120 100% 95%;
+    --accent: 180 100% 50%;
+    --accent-foreground: 270 100% 6%;
 
     --destructive: 0 62% 50%;
-    --destructive-foreground: 0 0% 10%;
+    --destructive-foreground: 270 100% 6%;
 
-    --border: 120 100% 30%;
-    --input: 120 100% 30%;
-    --ring: 120 100% 40%;
+    --border: 289 100% 40%;
+    --input: 289 100% 40%;
+    --ring: 289 100% 50%;
 
-    --radius: 0.25rem;
+    --radius: 0;
   }
  
   * {
@@ -46,22 +48,21 @@
   }
   
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-gradient-to-b from-vapor-dark to-terminal-dark text-foreground antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23054200' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+    position: relative;
   }
   
-  /* Theme-specific backgrounds */
-  .theme-cyber body {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000042' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  /* Vaporwave grid background */
+  body::before {
+    content: "";
+    @apply absolute inset-0 bg-vapor-grid opacity-20 pointer-events-none;
+    z-index: -1;
   }
   
-  .theme-glitch body {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233F0071' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
-  }
-  
-  .theme-retro body {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23555555' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  /* Vaporwave theme overrides */
+  .vaporwave-theme {
+    font-family: 'VT323', 'JetBrains Mono', monospace;
   }
   
   ::-webkit-scrollbar {
@@ -69,28 +70,15 @@
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-secondary/50;
+    @apply bg-terminal-dark;
   }
 
-  /* Theme-specific scrollbars */
   ::-webkit-scrollbar-thumb {
-    @apply bg-hacker-dark rounded-none hover:bg-hacker transition-colors;
-  }
-  
-  .theme-cyber ::-webkit-scrollbar-thumb {
-    @apply bg-cyber-blue/50 rounded-none hover:bg-cyber-blue transition-colors;
-  }
-  
-  .theme-glitch ::-webkit-scrollbar-thumb {
-    @apply bg-glitch-primary/50 rounded-none hover:bg-glitch-primary transition-colors;
-  }
-  
-  .theme-retro ::-webkit-scrollbar-thumb {
-    @apply bg-retro-brightGreen/50 rounded-none hover:bg-retro-brightGreen transition-colors;
+    @apply bg-gradient-to-b from-neon-pink to-neon-purple rounded-none;
   }
 
   input, select, textarea {
-    @apply bg-secondary text-foreground border-primary/30 focus:border-primary focus:ring-1 focus:ring-primary;
+    @apply bg-terminal-dark text-foreground border-neon-pink/30 focus:border-neon-pink focus:ring-1 focus:ring-neon-pink;
   }
 
   button {
@@ -100,7 +88,7 @@
 
 @layer components {
   .glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-primary/30 shadow-lg shadow-primary/20;
+    @apply backdrop-blur-sm bg-terminal-dark/70 border border-neon-pink/30 shadow-lg shadow-neon-pink/20;
   }
   
   .section-container {
@@ -111,7 +99,6 @@
     @apply flex flex-col gap-1.5 mb-4;
   }
   
-  /* Theme-specific text styles */
   .terminal-text {
     @apply font-mono tracking-tight;
   }
@@ -120,9 +107,8 @@
     @apply inline-block w-2 h-4 ml-1 animate-blink;
   }
   
-  /* Theme-specific styles for terminal */
   .terminal-container {
-    @apply rounded-none border p-0 font-mono text-sm bg-black/80 shadow-inner;
+    @apply rounded-none border p-0 font-mono text-sm bg-terminal-dark shadow-inner shadow-neon-purple/20;
   }
   
   .terminal-header {
@@ -134,7 +120,7 @@
   }
   
   .breach-item {
-    @apply p-3 border rounded-none bg-black/50 mb-2 flex items-center gap-2 hover:border-primary/70 transition-colors;
+    @apply p-3 border rounded-none bg-terminal-dark/50 mb-2 flex items-center gap-2 hover:border-neon-pink/70 transition-colors;
   }
 
   .matrix-bg {
@@ -143,75 +129,24 @@
 
   .matrix-bg::before {
     content: "";
-    @apply absolute inset-0 bg-black/30 z-0;
+    @apply absolute inset-0 bg-terminal-dark/30 z-0;
   }
 
-  /* Theme-specific matrix characters */
   .matrix-character {
     @apply font-mono text-xs md:text-sm absolute animate-matrix-rain;
   }
   
-  .theme-hacker .matrix-character {
-    @apply text-hacker/60;
-  }
-  
-  .theme-cyber .matrix-character {
-    @apply text-cyber-blue/60;
-  }
-  
-  .theme-glitch .matrix-character {
-    @apply text-glitch-primary/60;
-  }
-  
-  .theme-retro .matrix-character {
-    @apply text-retro-brightGreen/60;
-  }
-  
-  /* Theme-specific scanlines */
   .scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+    @apply pointer-events-none absolute inset-0 h-full w-full;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255, 0, 255, 0) 0%,
+      rgba(255, 0, 255, 0) 50%,
+      rgba(255, 0, 255, 0.1) 50%,
+      rgba(255, 0, 255, 0) 52%
+    );
     background-size: 100% 4px;
     animation: scan 8s linear infinite;
-  }
-  
-  .theme-hacker .scanline {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(0, 255, 0, 0) 0%,
-      rgba(0, 255, 0, 0) 50%,
-      rgba(0, 255, 0, 0.1) 50%,
-      rgba(0, 255, 0, 0) 52%
-    );
-  }
-  
-  .theme-cyber .scanline {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(14, 165, 233, 0) 0%,
-      rgba(14, 165, 233, 0) 50%,
-      rgba(14, 165, 233, 0.1) 50%,
-      rgba(14, 165, 233, 0) 52%
-    );
-  }
-  
-  .theme-glitch .scanline {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(139, 100, 179, 0) 0%,
-      rgba(139, 100, 179, 0) 50%,
-      rgba(139, 100, 179, 0.1) 50%,
-      rgba(139, 100, 179, 0) 52%
-    );
-  }
-  
-  .theme-retro .scanline {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(85, 255, 85, 0) 0%,
-      rgba(85, 255, 85, 0) 50%,
-      rgba(85, 255, 85, 0.1) 50%,
-      rgba(85, 255, 85, 0) 52%
-    );
   }
 }
 
@@ -229,77 +164,37 @@
 
   .text-glitch {
     @apply relative;
-    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.4), 
-                -0.05em 0 0 rgba(0, 255, 0, 0.4);
+    text-shadow: 0.05em 0 0 rgba(255, 0, 255, 0.4), 
+                -0.05em 0 0 rgba(0, 255, 255, 0.4);
     animation: glitch 0.3s infinite;
   }
 
-  .terminal-shadow {
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2), 
-                0 0 20px rgba(0, 255, 0, 0.1), 
-                0 0 30px rgba(0, 255, 0, 0.05);
+  .vaporwave-shadow {
+    box-shadow: 0 0 10px rgba(255, 0, 255, 0.2), 
+                0 0 20px rgba(0, 255, 255, 0.1), 
+                0 0 30px rgba(157, 84, 255, 0.05);
   }
   
-  .cyber-shadow {
-    box-shadow: 0 0 10px rgba(14, 165, 233, 0.2), 
-                0 0 20px rgba(14, 165, 233, 0.1), 
-                0 0 30px rgba(14, 165, 233, 0.05);
+  .vaporwave-glow {
+    text-shadow: 0 0 5px rgba(255, 0, 255, 0.7),
+                0 0 10px rgba(0, 255, 255, 0.5),
+                0 0 15px rgba(157, 84, 255, 0.3);
   }
   
-  .glitch-shadow {
-    box-shadow: 0 0 10px rgba(139, 100, 179, 0.2), 
-                0 0 20px rgba(139, 100, 179, 0.1), 
-                0 0 30px rgba(139, 100, 179, 0.05);
+  .vaporwave-gradient {
+    @apply bg-gradient-to-r from-neon-pink via-neon-purple to-neon-teal animate-vapor-gradient bg-300%;
   }
   
-  .retro-shadow {
-    box-shadow: 0 0 10px rgba(85, 255, 85, 0.2), 
-                0 0 20px rgba(85, 255, 85, 0.1), 
-                0 0 30px rgba(85, 255, 85, 0.05);
+  .bg-300\% {
+    background-size: 300% 100%;
   }
   
-  .hacker-glow {
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.7),
-                0 0 10px rgba(0, 255, 0, 0.5),
-                0 0 15px rgba(0, 255, 0, 0.3);
+  .text-gradient-pink {
+    @apply bg-gradient-to-r from-neon-pink to-neon-purple bg-clip-text text-transparent;
   }
   
-  .cyber-glow {
-    text-shadow: 0 0 5px rgba(14, 165, 233, 0.7),
-                0 0 10px rgba(14, 165, 233, 0.5),
-                0 0 15px rgba(14, 165, 233, 0.3);
-  }
-  
-  .glitch-glow {
-    text-shadow: 0 0 5px rgba(139, 100, 179, 0.7),
-                0 0 10px rgba(139, 100, 179, 0.5),
-                0 0 15px rgba(139, 100, 179, 0.3);
-  }
-  
-  .retro-glow {
-    text-shadow: 0 0 5px rgba(85, 255, 85, 0.7),
-                0 0 10px rgba(85, 255, 85, 0.5),
-                0 0 15px rgba(85, 255, 85, 0.3);
-  }
-  
-  .hacker-text::before {
-    content: "root@system:~$ ";
-    @apply text-hacker-light;
-  }
-  
-  .cyber-text::before {
-    content: "admin@network:~$ ";
-    @apply text-cyber-blue;
-  }
-  
-  .glitch-text::before {
-    content: "ghost@machine:~$ ";
-    @apply text-glitch-primary;
-  }
-  
-  .retro-text::before {
-    content: "user@dos:~$ ";
-    @apply text-retro-brightGreen;
+  .text-gradient-teal {
+    @apply bg-gradient-to-r from-neon-teal to-neon-blue bg-clip-text text-transparent;
   }
 }
 

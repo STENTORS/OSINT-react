@@ -10,7 +10,7 @@ const AsciiHeader = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <pre className="text-center text-hacker font-mono text-xs md:text-sm lg:text-base leading-tight mx-auto max-w-full overflow-x-auto scrollbar-none">
+      <pre className="text-center vaporwave-glow text-gradient-pink font-mono text-xs md:text-sm lg:text-base leading-tight mx-auto max-w-full overflow-x-auto scrollbar-none">
 {`
  ██████╗ ███████╗██╗███╗   ██╗████████╗
 ██╔═══██╗██╔════╝██║████╗  ██║╚══██╔══╝
@@ -19,7 +19,7 @@ const AsciiHeader = () => {
 ╚██████╔╝███████║██║██║ ╚████║   ██║   
  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝   ╚═╝   
 +----------------------------------------+
-| [root@hackershell:~] ./breach_scanner   |
+| [root@vaporshell:~] ./breach_scanner   |
 | > INITIALIZING SYSTEMS...               |
 | > ACCESS GRANTED                        |
 +----------------------------------------+
