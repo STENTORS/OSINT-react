@@ -9,17 +9,19 @@ interface AnimatedTerminalProps {
 
 const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) => {
   const [lines, setLines] = useState<string[]>([
-    "$ OSINT tool initialized...",
-    "$ Ready for search parameters..."
+    "[root@hackershell:~]# ./osint_init.sh",
+    "[root@hackershell:~]# OSINT tool initialized...",
+    "[root@hackershell:~]# Awaiting target parameters..."
   ]);
   
   useEffect(() => {
     if (isSearching && searchParams) {
       const newLines = [
-        `$ Starting search for: ${searchParams.email || 'No email provided'}`,
-        "$ Connecting to database...",
-        "$ Running breach check...",
-        "$ Processing results..."
+        `[root@hackershell:~]# TARGET ACQUIRED: ${searchParams.email || 'No email provided'}`,
+        "[root@hackershell:~]# Establishing connection to darknet...",
+        "[root@hackershell:~]# Scanning breach databases...",
+        "[root@hackershell:~]# Bypassing security protocols...",
+        "[root@hackershell:~]# Data mining in progress <|=======>",
       ];
       
       let timeoutId: NodeJS.Timeout;
@@ -37,13 +39,13 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
       
       return () => clearTimeout(timeoutId);
     } else if (!isSearching && searchParams) {
-      setLines(prev => [...prev, "$ Search complete. Results ready."]);
+      setLines(prev => [...prev, "[root@hackershell:~]# Operation complete. Target data extracted."]);
     }
   }, [isSearching, searchParams]);
 
   // Matrix background effect
   const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$#@*&^%!".split("");
-  const matrixCharacters = Array.from({ length: 30 }, (_, i) => ({
+  const matrixCharacters = Array.from({ length: 40 }, (_, i) => ({
     id: i,
     char: matrixChars[Math.floor(Math.random() * matrixChars.length)],
     x: Math.random() * 100,
@@ -53,11 +55,13 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
 
   return (
     <div className="terminal-container relative h-[256px] overflow-hidden terminal-shadow">
-      <div className="terminal-header">
-        <div className="terminal-circle bg-red-600"></div>
-        <div className="terminal-circle bg-amber-600"></div>
-        <div className="terminal-circle bg-hacker-dark"></div>
-        <span className="text-xs text-hacker ml-2">terminal@osint:~#</span>
+      <div className="terminal-header bg-hacker-dark px-2 py-1 flex items-center">
+        <span className="text-xs text-hacker font-mono">root@hackershell:~ | breach_hunter v1.0</span>
+        <div className="ml-auto flex items-center gap-1">
+          <span className="text-xs text-hacker">_</span>
+          <span className="text-xs text-hacker">□</span>
+          <span className="text-xs text-hacker">✕</span>
+        </div>
       </div>
       
       {/* Matrix background effect */}
@@ -77,7 +81,7 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
         ))}
       </div>
       
-      <div className="h-[220px] overflow-y-auto pr-2 relative z-10">
+      <div className="h-[220px] overflow-y-auto pr-2 relative z-10 p-2">
         {lines.map((line, index) => (
           <motion.div
             key={index}
@@ -97,13 +101,13 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             transition={{ duration: 0.3 }}
             className="flex items-center"
           >
-            <span className="text-xs md:text-sm text-hacker">$ </span>
+            <span className="text-xs md:text-sm text-hacker">[root@hackershell:~]# </span>
             <span className="ml-1 h-3 w-3 bg-hacker animate-pulse"></span>
           </motion.div>
         )}
       </div>
       
-      <div className="absolute inset-0 pointer-events-none border-t border-hacker/20 animate-scan-line opacity-10"></div>
+      <div className="absolute inset-0 pointer-events-none scanline opacity-20"></div>
     </div>
   );
 };
