@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -52,6 +51,19 @@
     background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23054200' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
   }
   
+  /* Theme-specific backgrounds */
+  .theme-cyber body {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23000042' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  
+  .theme-glitch body {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%233F0071' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  
+  .theme-retro body {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23555555' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
+  }
+  
   ::-webkit-scrollbar {
     @apply w-2;
   }
@@ -59,13 +71,26 @@
   ::-webkit-scrollbar-track {
     @apply bg-secondary/50;
   }
-  
+
+  /* Theme-specific scrollbars */
   ::-webkit-scrollbar-thumb {
     @apply bg-hacker-dark rounded-none hover:bg-hacker transition-colors;
   }
+  
+  .theme-cyber ::-webkit-scrollbar-thumb {
+    @apply bg-cyber-blue/50 rounded-none hover:bg-cyber-blue transition-colors;
+  }
+  
+  .theme-glitch ::-webkit-scrollbar-thumb {
+    @apply bg-glitch-primary/50 rounded-none hover:bg-glitch-primary transition-colors;
+  }
+  
+  .theme-retro ::-webkit-scrollbar-thumb {
+    @apply bg-retro-brightGreen/50 rounded-none hover:bg-retro-brightGreen transition-colors;
+  }
 
   input, select, textarea {
-    @apply bg-secondary text-hacker border-hacker-dark focus:border-hacker focus:ring-1 focus:ring-hacker caret-hacker;
+    @apply bg-secondary text-foreground border-primary/30 focus:border-primary focus:ring-1 focus:ring-primary;
   }
 
   button {
@@ -75,19 +100,7 @@
 
 @layer components {
   .glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-hacker/30 shadow-lg shadow-hacker/20;
-  }
-  
-  .cyber-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-cyber-blue/30 shadow-lg shadow-cyber-blue/20;
-  }
-  
-  .glitch-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-glitch-primary/30 shadow-lg shadow-glitch-primary/20;
-  }
-  
-  .retro-glassmorphism {
-    @apply backdrop-blur-sm bg-black/70 border border-retro-brightBlue/30 shadow-lg shadow-retro-brightBlue/20;
+    @apply backdrop-blur-sm bg-black/70 border border-primary/30 shadow-lg shadow-primary/20;
   }
   
   .section-container {
@@ -98,44 +111,22 @@
     @apply flex flex-col gap-1.5 mb-4;
   }
   
+  /* Theme-specific text styles */
   .terminal-text {
-    @apply font-mono tracking-tight text-hacker;
-  }
-  
-  .cyber-text {
-    @apply font-mono tracking-tight text-cyber-blue;
-  }
-  
-  .glitch-text {
-    @apply font-mono tracking-tight text-glitch-primary;
-  }
-  
-  .retro-text {
-    @apply font-mono tracking-tight text-retro-brightGreen;
+    @apply font-mono tracking-tight;
   }
   
   .typed-cursor {
-    @apply inline-block w-2 h-4 ml-1 bg-hacker animate-blink;
+    @apply inline-block w-2 h-4 ml-1 animate-blink;
   }
   
-  .typed-cursor-cyber {
-    @apply inline-block w-2 h-4 ml-1 bg-cyber-blue animate-blink;
-  }
-  
-  .typed-cursor-glitch {
-    @apply inline-block w-2 h-4 ml-1 bg-glitch-primary animate-blink;
-  }
-  
-  .typed-cursor-retro {
-    @apply inline-block w-2 h-4 ml-1 bg-retro-brightGreen animate-blink;
-  }
-  
+  /* Theme-specific styles for terminal */
   .terminal-container {
-    @apply rounded-none border border-hacker/50 p-0 font-mono text-sm bg-black/80 text-hacker shadow-inner;
+    @apply rounded-none border p-0 font-mono text-sm bg-black/80 shadow-inner;
   }
   
   .terminal-header {
-    @apply mb-0 border-b border-hacker/30;
+    @apply mb-0 border-b;
   }
   
   .terminal-circle {
@@ -143,7 +134,7 @@
   }
   
   .breach-item {
-    @apply p-3 border border-hacker/30 rounded-none bg-black/50 mb-2 flex items-center gap-2 hover:border-hacker/70 transition-colors;
+    @apply p-3 border rounded-none bg-black/50 mb-2 flex items-center gap-2 hover:border-primary/70 transition-colors;
   }
 
   .matrix-bg {
@@ -155,24 +146,35 @@
     @apply absolute inset-0 bg-black/30 z-0;
   }
 
+  /* Theme-specific matrix characters */
   .matrix-character {
-    @apply font-mono text-xs md:text-sm text-hacker/60 absolute animate-matrix-rain;
+    @apply font-mono text-xs md:text-sm absolute animate-matrix-rain;
   }
   
-  .cyber-character {
-    @apply font-mono text-xs md:text-sm text-cyber-blue/60 absolute animate-matrix-rain;
+  .theme-hacker .matrix-character {
+    @apply text-hacker/60;
   }
   
-  .glitch-character {
-    @apply font-mono text-xs md:text-sm text-glitch-primary/60 absolute animate-matrix-rain;
+  .theme-cyber .matrix-character {
+    @apply text-cyber-blue/60;
   }
   
-  .retro-character {
-    @apply font-mono text-xs md:text-sm text-retro-brightBlue/60 absolute animate-matrix-rain;
+  .theme-glitch .matrix-character {
+    @apply text-glitch-primary/60;
   }
   
+  .theme-retro .matrix-character {
+    @apply text-retro-brightGreen/60;
+  }
+  
+  /* Theme-specific scanlines */
   .scanline {
     @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+    background-size: 100% 4px;
+    animation: scan 8s linear infinite;
+  }
+  
+  .theme-hacker .scanline {
     background-image: repeating-linear-gradient(
       to bottom,
       rgba(0, 255, 0, 0) 0%,
@@ -180,12 +182,9 @@
       rgba(0, 255, 0, 0.1) 50%,
       rgba(0, 255, 0, 0) 52%
     );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
   }
   
-  .cyber-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+  .theme-cyber .scanline {
     background-image: repeating-linear-gradient(
       to bottom,
       rgba(14, 165, 233, 0) 0%,
@@ -193,12 +192,9 @@
       rgba(14, 165, 233, 0.1) 50%,
       rgba(14, 165, 233, 0) 52%
     );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
   }
   
-  .glitch-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+  .theme-glitch .scanline {
     background-image: repeating-linear-gradient(
       to bottom,
       rgba(139, 100, 179, 0) 0%,
@@ -206,12 +202,9 @@
       rgba(139, 100, 179, 0.1) 50%,
       rgba(139, 100, 179, 0) 52%
     );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
   }
   
-  .retro-scanline {
-    @apply pointer-events-none absolute inset-0 h-full w-full bg-gradient-to-b from-transparent to-transparent;
+  .theme-retro .scanline {
     background-image: repeating-linear-gradient(
       to bottom,
       rgba(85, 255, 85, 0) 0%,
@@ -219,8 +212,6 @@
       rgba(85, 255, 85, 0.1) 50%,
       rgba(85, 255, 85, 0) 52%
     );
-    background-size: 100% 4px;
-    animation: scan 8s linear infinite;
   }
 }
 
