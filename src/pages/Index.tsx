@@ -12,8 +12,6 @@ import TypedText from "@/components/TypedText";
 import AnimatedTerminal from "@/components/AnimatedTerminal";
 import SearchForm from "@/components/SearchForm";
 import ResultsPanel from "@/components/ResultsPanel";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
-import { ThemeProvider } from "@/context/ThemeContext";
 import { checkEmailBreaches } from "@/lib/osintService";
 
 const Index = () => {
@@ -82,80 +80,77 @@ const Index = () => {
   };
 
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
-        <ThemeSwitcher />
-        <motion.div 
-          className="section-container py-12"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants}>
-            <AsciiHeader />
-            <TypedText 
-              text="OSINT Research Tool" 
-              className="text-2xl md:text-3xl font-bold text-center mb-1 text-primary"
-            />
-            <p className="text-center text-muted-foreground mb-12">
-              Integrated open-source intelligence research platform
-            </p>
-          </motion.div>
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/30">
+      <motion.div 
+        className="section-container py-12"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
+        <motion.div variants={itemVariants}>
+          <AsciiHeader />
+          <TypedText 
+            text="OSINT Research Tool" 
+            className="text-2xl md:text-3xl font-bold text-center mb-1 text-primary"
+          />
+          <p className="text-center text-muted-foreground mb-12">
+            Integrated open-source intelligence research platform
+          </p>
+        </motion.div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
-            variants={itemVariants}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+          variants={itemVariants}
+        >
+          <Card className="p-6 glassmorphism">
+            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <Search className="h-5 w-5" />
+              <span>Search Parameters</span>
+            </h2>
+            <Separator className="mb-6" />
+            <SearchForm onSubmit={handleSearch} isSearching={isSearching} />
+          </Card>
+
+          <Card className="p-6 glassmorphism">
+            <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
+              <Database className="h-5 w-5" />
+              <span>Command Terminal</span>
+            </h2>
+            <Separator className="mb-6" />
+            <AnimatedTerminal
+              isSearching={isSearching}
+              searchParams={searchResults?.userData}
+            />
+          </Card>
+        </motion.div>
+
+        {searchResults && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
           >
             <Card className="p-6 glassmorphism">
               <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <Search className="h-5 w-5" />
-                <span>Search Parameters</span>
+                {searchResults.breachData.length > 0 ? (
+                  <>
+                    <LockOpen className="h-5 w-5 text-amber-500" />
+                    <span>Breach Results</span>
+                  </>
+                ) : (
+                  <>
+                    <Shield className="h-5 w-5 text-green-500" />
+                    <span>Security Status</span>
+                  </>
+                )}
               </h2>
               <Separator className="mb-6" />
-              <SearchForm onSubmit={handleSearch} isSearching={isSearching} />
-            </Card>
-
-            <Card className="p-6 glassmorphism">
-              <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                <Database className="h-5 w-5" />
-                <span>Command Terminal</span>
-              </h2>
-              <Separator className="mb-6" />
-              <AnimatedTerminal
-                isSearching={isSearching}
-                searchParams={searchResults?.userData}
-              />
+              <ResultsPanel results={searchResults} />
             </Card>
           </motion.div>
-
-          {searchResults && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Card className="p-6 glassmorphism">
-                <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">
-                  {searchResults.breachData.length > 0 ? (
-                    <>
-                      <LockOpen className="h-5 w-5 text-amber-500" />
-                      <span>Breach Results</span>
-                    </>
-                  ) : (
-                    <>
-                      <Shield className="h-5 w-5 text-green-500" />
-                      <span>Security Status</span>
-                    </>
-                  )}
-                </h2>
-                <Separator className="mb-6" />
-                <ResultsPanel results={searchResults} />
-              </Card>
-            </motion.div>
-          )}
-        </motion.div>
-      </div>
-    </ThemeProvider>
+        )}
+      </motion.div>
+    </div>
   );
 };
 

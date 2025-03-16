@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
-import { useTheme } from '@/context/ThemeContext';
 
 interface AnimatedTerminalProps {
   isSearching: boolean;
@@ -9,7 +8,6 @@ interface AnimatedTerminalProps {
 }
 
 const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) => {
-  const { theme } = useTheme();
   const [lines, setLines] = useState<string[]>([
     "[root@hackershell:~]# ./osint_init.sh",
     "[root@hackershell:~]# OSINT tool initialized...",
@@ -54,51 +52,15 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
     duration: 2 + Math.random() * 3,
     delay: Math.random() * 2
   }));
-  
-  // Theme-specific colors
-  const getThemeColors = () => {
-    switch (theme) {
-      case 'cyber':
-        return {
-          text: 'text-cyber-blue',
-          bg: 'bg-cyber-blue-dark',
-          border: 'border-cyber-blue/30',
-          highlight: 'text-cyber-blue'
-        };
-      case 'glitch':
-        return {
-          text: 'text-glitch-primary',
-          bg: 'bg-glitch-dark',
-          border: 'border-glitch-primary/30',
-          highlight: 'text-glitch-primary'
-        };
-      case 'retro':
-        return {
-          text: 'text-retro-brightGreen',
-          bg: 'bg-retro-darkBlue',
-          border: 'border-retro-brightGreen/30',
-          highlight: 'text-retro-brightGreen'
-        };
-      default: // hacker
-        return {
-          text: 'text-hacker',
-          bg: 'bg-hacker-dark',
-          border: 'border-hacker/30',
-          highlight: 'text-hacker'
-        };
-    }
-  };
-  
-  const colors = getThemeColors();
 
   return (
-    <div className={`terminal-container relative h-[256px] overflow-hidden border-${colors.border}`}>
-      <div className={`terminal-header ${colors.bg} px-2 py-1 flex items-center`}>
-        <span className={`text-xs ${colors.text} font-mono`}>root@hackershell:~ | breach_hunter v1.0</span>
+    <div className="terminal-container relative h-[256px] overflow-hidden terminal-shadow">
+      <div className="terminal-header bg-hacker-dark px-2 py-1 flex items-center">
+        <span className="text-xs text-hacker font-mono">root@hackershell:~ | breach_hunter v1.0</span>
         <div className="ml-auto flex items-center gap-1">
-          <span className={`text-xs ${colors.text}`}>_</span>
-          <span className={`text-xs ${colors.text}`}>□</span>
-          <span className={`text-xs ${colors.text}`}>✕</span>
+          <span className="text-xs text-hacker">_</span>
+          <span className="text-xs text-hacker">□</span>
+          <span className="text-xs text-hacker">✕</span>
         </div>
       </div>
       
@@ -126,7 +88,7 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`text-xs md:text-sm mb-1.5 ${colors.text}`}
+            className="text-xs md:text-sm mb-1.5 text-hacker"
           >
             {line}
           </motion.div>
@@ -139,8 +101,8 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             transition={{ duration: 0.3 }}
             className="flex items-center"
           >
-            <span className={`text-xs md:text-sm ${colors.text}`}>[root@hackershell:~]# </span>
-            <span className={`ml-1 h-3 w-3 animate-pulse`} style={{ backgroundColor: 'currentColor' }}></span>
+            <span className="text-xs md:text-sm text-hacker">[root@hackershell:~]# </span>
+            <span className="ml-1 h-3 w-3 bg-hacker animate-pulse"></span>
           </motion.div>
         )}
       </div>
