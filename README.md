@@ -8,7 +8,7 @@ This project is a cybersecurity-themed OSINT (Open Source Intelligence) research
 - React
 - shadcn-ui
 - Tailwind CSS
-- Public APIs for breach data
+- Puppeteer for web scraping
 
 ## Setup Instructions
 
@@ -44,32 +44,32 @@ yarn dev
 http://localhost:8080
 ```
 
-## How It Works
+### Backend Setup
 
-The application fetches breach data using the following approach:
+This project uses Puppeteer for headless browser automation to scrape breach data. The "backend" functionality is built into the frontend code in `src/lib/osintService.ts`.
 
-1. When a user searches for an email, the app makes an API request to the Have I Been Pwned public API
-2. The app processes the response to determine if the email has been found in any breaches
-3. Results are displayed in a user-friendly format in the Results Panel
-4. If the API request fails, the app falls back to predefined mock data
+For local development:
+- The app will use mock data by default in development mode
+- If you want to test the actual scraping functionality:
+  1. Make sure you have a good internet connection
+  2. Enter a valid email in the search form
+  3. The app will attempt to scrape breach data using Puppeteer
 
-## Color Themes
+### Notes on Puppeteer
 
-The application includes four cybersecurity-themed color schemes:
-- **Hacker** - Classic green terminal colors
-- **Cyber** - Blue-focused cyberpunk aesthetic
-- **Glitch** - Purple/pink vaporwave style
-- **Retro** - Old-school terminal colors
-
-You can switch between themes using the theme switcher in the top-right corner of the application.
+- Puppeteer is a Node.js library that provides a high-level API to control Chrome/Chromium
+- It runs headless by default (no browser UI)
+- For this project, it's bundled with the frontend code for simplicity
+- In a production environment, this functionality should be moved to a proper backend service
 
 ## Features
 
-- Email breach checking via public APIs
+- Email breach checking
 - Animated terminal interface
-- Multiple cyberpunk/hacker aesthetic color themes
+- Cyberpunk/hacker aesthetic with multiple color themes
 - Responsive design
 
 ## Disclaimer
 
-This tool is for educational purposes only. The breach data is sourced from public APIs and may not represent real breaches. Always ensure you have permission before searching for email addresses that don't belong to you.
+This tool is for educational purposes only. Web scraping may violate terms of service of websites. Always ensure you have permission before scraping any website.
+
