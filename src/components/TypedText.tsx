@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useTheme } from '@/context/ThemeContext';
 
 interface TypedTextProps {
   text: string;
@@ -10,8 +11,41 @@ interface TypedTextProps {
 }
 
 const TypedText = ({ text, className, delay = 500, speed = 50 }: TypedTextProps) => {
+  const { theme } = useTheme();
   const [displayText, setDisplayText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
+
+  // Theme-specific classes
+  const getThemeClasses = () => {
+    switch (theme) {
+      case 'cyber':
+        return {
+          text: 'text-cyber-blue',
+          light: 'text-cyber-blue/70',
+          cursor: 'typed-cursor-cyber bg-cyber-blue'
+        };
+      case 'glitch':
+        return {
+          text: 'text-glitch-primary',
+          light: 'text-glitch-primary/70',
+          cursor: 'typed-cursor-glitch bg-glitch-primary'
+        };
+      case 'retro':
+        return {
+          text: 'text-retro-brightGreen',
+          light: 'text-retro-brightGreen/70',
+          cursor: 'typed-cursor-retro bg-retro-brightGreen'
+        };
+      default: // hacker
+        return {
+          text: 'text-hacker',
+          light: 'text-hacker-light',
+          cursor: 'typed-cursor bg-hacker'
+        };
+    }
+  };
+  
+  const themeClasses = getThemeClasses();
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -36,9 +70,9 @@ const TypedText = ({ text, className, delay = 500, speed = 50 }: TypedTextProps)
   }, [text, delay, speed]);
 
   return (
-    <div className={cn("inline-flex font-mono", "text-gradient-pink", className)}>
-      <span className="text-neon-teal">[</span><span className="text-neon-purple">$</span><span className="text-neon-teal">]</span> {displayText}
-      {isTyping && <span className="typed-cursor bg-neon-purple"></span>}
+    <div className={cn("inline-flex font-mono", themeClasses.text, className)}>
+      <span className={themeClasses.light}>[</span><span className={themeClasses.text}>$</span><span className={themeClasses.light}>]</span> {displayText}
+      {isTyping && <span className={themeClasses.cursor}></span>}
     </div>
   );
 };

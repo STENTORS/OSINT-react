@@ -57,22 +57,58 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// New vaporwave colors
-				'neon-pink': '#FF00FF',
-				'neon-teal': '#00FFFF',
-				'neon-purple': '#9D54FF',
-				'neon-blue': '#0080FF',
-				'neon-green': '#39FF14',
-				'neon-yellow': '#FFFF00',
-				'neon-orange': '#FF8800',
-				'terminal-dark': '#0D001A',
-				'terminal-border': '#FF00FF',
-				'vapor-grid': '#4A0080',
-				'vapor-dark': '#170033',
-				'vapor-light': '#9966CC',
-			},
-			backgroundImage: {
-				'vapor-grid': "url(\"data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234A0080' fill-opacity='0.25' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+				hacker: {
+					DEFAULT: '#0F0',     // Bright terminal green
+					dark: '#050',        // Darker green for contrast
+					light: '#AFA',       // Lighter green for highlights
+					text: '#0F0',        // Text green 
+					neon: '#00FF41',     // Neon green for special effects
+					toxic: '#39FF14',    // Toxic bright green
+					lime: '#32CD32',     // Lime green
+					matrix: '#003B00',   // Matrix dark green
+					glow: '#00FF00',     // Glowing terminal green
+				},
+				cyber: {
+					blue: '#0EA5E9',      // Bright cyber blue
+					purple: '#8B5CF6',    // Vivid purple
+					magenta: '#D946EF',   // Magenta pink
+					orange: '#F97316',    // Bright orange
+					yellow: '#FACC15',    // Electric yellow
+					red: '#EF4444',       // Danger red
+					teal: '#14B8A6',      // Teal
+					pink: '#EC4899',      // Neon pink
+					indigo: '#6366F1',    // Futuristic indigo
+				},
+				glitch: {
+					dark: '#0D0221',      // Deep space purple
+					primary: '#8864B3',   // Electric purple
+					secondary: '#5A189A', // Deep purple
+					accent: '#3F0071',    // Dark purple
+					highlight: '#BC00DD', // Bright purple
+					blue: '#190BF5',      // Glitch blue
+					pink: '#FB2576',      // Hot pink
+					teal: '#21E6C1',      // Electric teal
+					yellow: '#FFCC00',    // Warning yellow
+				},
+				retro: {
+					black: '#0A0A0A',      // Deep black
+					darkBlue: '#0000AA',   // Dark blue (DOS)
+					blue: '#0000FF',       // Classic blue
+					green: '#00AA00',      // Terminal green
+					cyan: '#00AAAA',       // Aqua cyan
+					red: '#AA0000',        // Dark red
+					magenta: '#AA00AA',    // Magenta
+					brown: '#AA5500',      // Brown
+					gray: '#AAAAAA',       // Light gray
+					darkGray: '#555555',   // Dark gray
+					brightBlue: '#5555FF', // Bright blue
+					brightGreen: '#55FF55', // Bright green
+					brightCyan: '#55FFFF', // Bright cyan
+					brightRed: '#FF5555',  // Bright red
+					brightMagenta: '#FF55FF', // Bright magenta
+					yellow: '#FFFF55',     // Yellow
+					white: '#FFFFFF',      // White
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -136,11 +172,6 @@ export default {
 					'0%': { opacity: '0.9' },
 					'50%': { opacity: '1' },
 					'100%': { opacity: '0.9' },
-				},
-				'vapor-gradient': {
-					'0%': { backgroundPosition: '0% 50%' },
-					'50%': { backgroundPosition: '100% 50%' },
-					'100%': { backgroundPosition: '0% 50%' },
 				}
 			},
 			animation: {
@@ -157,7 +188,6 @@ export default {
 				'matrix-rain': 'matrix-rain 3s linear infinite',
 				'glitch': 'glitch 0.3s ease-in-out infinite',
 				'crt-flicker': 'crt-flicker 0.15s infinite',
-				'vapor-gradient': 'vapor-gradient 15s ease infinite',
 			},
 		}
 	},
