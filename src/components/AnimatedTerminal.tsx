@@ -9,19 +9,17 @@ interface AnimatedTerminalProps {
 
 const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) => {
   const [lines, setLines] = useState<string[]>([
-    "[root@hackershell:~]# ./osint_init.sh",
-    "[root@hackershell:~]# OSINT tool initialized...",
-    "[root@hackershell:~]# Awaiting target parameters..."
+    "$ OSINT tool initialized...",
+    "$ Ready for search parameters..."
   ]);
   
   useEffect(() => {
     if (isSearching && searchParams) {
       const newLines = [
-        `[root@hackershell:~]# TARGET ACQUIRED: ${searchParams.email || 'No email provided'}`,
-        "[root@hackershell:~]# Establishing connection to darknet...",
-        "[root@hackershell:~]# Scanning breach databases...",
-        "[root@hackershell:~]# Bypassing security protocols...",
-        "[root@hackershell:~]# Data mining in progress <|=======>",
+        `$ Starting search for: ${searchParams.email || 'No email provided'}`,
+        "$ Connecting to database...",
+        "$ Running breach check...",
+        "$ Processing results..."
       ];
       
       let timeoutId: NodeJS.Timeout;
@@ -39,56 +37,27 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
       
       return () => clearTimeout(timeoutId);
     } else if (!isSearching && searchParams) {
-      setLines(prev => [...prev, "[root@hackershell:~]# Operation complete. Target data extracted."]);
+      setLines(prev => [...prev, "$ Search complete. Results ready."]);
     }
   }, [isSearching, searchParams]);
 
-  // Matrix background effect
-  const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789$#@*&^%!".split("");
-  const matrixCharacters = Array.from({ length: 40 }, (_, i) => ({
-    id: i,
-    char: matrixChars[Math.floor(Math.random() * matrixChars.length)],
-    x: Math.random() * 100,
-    duration: 2 + Math.random() * 3,
-    delay: Math.random() * 2
-  }));
-
   return (
-    <div className="terminal-container relative h-[256px] overflow-hidden terminal-shadow">
-      <div className="terminal-header bg-hacker-dark px-2 py-1 flex items-center">
-        <span className="text-xs text-hacker font-mono">root@hackershell:~ | breach_hunter v1.0</span>
-        <div className="ml-auto flex items-center gap-1">
-          <span className="text-xs text-hacker">_</span>
-          <span className="text-xs text-hacker">□</span>
-          <span className="text-xs text-hacker">✕</span>
-        </div>
+    <div className="terminal-container relative h-[256px] overflow-hidden">
+      <div className="terminal-header">
+        <div className="terminal-circle bg-red-400"></div>
+        <div className="terminal-circle bg-amber-400"></div>
+        <div className="terminal-circle bg-green-400"></div>
+        <span className="text-xs text-muted-foreground ml-2">terminal</span>
       </div>
       
-      {/* Matrix background effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
-        {matrixCharacters.map((char) => (
-          <div 
-            key={char.id}
-            className="matrix-character"
-            style={{
-              left: `${char.x}%`,
-              animationDuration: `${char.duration}s`,
-              animationDelay: `${char.delay}s`
-            }}
-          >
-            {char.char}
-          </div>
-        ))}
-      </div>
-      
-      <div className="h-[220px] overflow-y-auto pr-2 relative z-10 p-2">
+      <div className="h-[220px] overflow-y-auto pr-2">
         {lines.map((line, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="text-xs md:text-sm mb-1.5 text-hacker"
+            className="text-xs md:text-sm mb-1.5"
           >
             {line}
           </motion.div>
@@ -101,13 +70,13 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             transition={{ duration: 0.3 }}
             className="flex items-center"
           >
-            <span className="text-xs md:text-sm text-hacker">[root@hackershell:~]# </span>
-            <span className="ml-1 h-3 w-3 bg-hacker animate-pulse"></span>
+            <span className="text-xs md:text-sm">$ </span>
+            <span className="ml-1 h-3 w-3 bg-primary animate-pulse"></span>
           </motion.div>
         )}
       </div>
       
-      <div className="absolute inset-0 pointer-events-none scanline opacity-20"></div>
+      <div className="absolute inset-0 pointer-events-none border-t border-border/50 animate-scan-line opacity-10"></div>
     </div>
   );
 };

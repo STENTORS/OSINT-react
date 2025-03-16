@@ -36,8 +36,8 @@ const TypedText = ({ text, className, delay = 500, speed = 50 }: TypedTextProps)
   }, [text, delay, speed]);
 
   return (
-    <div className={cn("inline-flex font-mono text-hacker", className)}>
-      <span className="text-hacker-light">[</span><span className="text-hacker">$</span><span className="text-hacker-light">]</span> {displayText}
+    <div className={cn("inline-flex", className)}>
+      {displayText}
       {isTyping && <span className="typed-cursor"></span>}
     </div>
   );

@@ -10,19 +10,14 @@ const AsciiHeader = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
-      <pre className="text-center text-hacker font-mono text-xs md:text-sm lg:text-base leading-tight mx-auto max-w-full overflow-x-auto scrollbar-none">
+      <pre className="text-center text-primary font-mono text-xs md:text-sm lg:text-base leading-tight mx-auto max-w-full overflow-x-auto scrollbar-none">
 {`
- ██████╗ ███████╗██╗███╗   ██╗████████╗
-██╔═══██╗██╔════╝██║████╗  ██║╚══██╔══╝
-██║   ██║███████╗██║██╔██╗ ██║   ██║   
-██║   ██║╚════██║██║██║╚██╗██║   ██║   
-╚██████╔╝███████║██║██║ ╚████║   ██║   
- ╚═════╝ ╚══════╝╚═╝╚═╝  ╚═══╝   ╚═╝   
-+----------------------------------------+
-| [root@hackershell:~] ./breach_scanner   |
-| > INITIALIZING SYSTEMS...               |
-| > ACCESS GRANTED                        |
-+----------------------------------------+
+  _______  _________ _       _________
+ /  ___  \\\\  _____  \\\\  \\    /  /  ___  \\\\
+/  /   \\  \\\\  \\   \\  \\\\  \\  /  /  /   \\  \\\\
+\\  \\    |  \\  |   |  \\  \\/  /\\  \\    |  |
+ \\  \\___/  /  |___/  /\\    /  \\  \\___/  /
+  \\_______/ \\_______/  \\__/    \\_______/
 `}
       </pre>
     </motion.div>
