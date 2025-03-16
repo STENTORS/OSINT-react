@@ -26,9 +26,9 @@ export const checkEmailBreaches = async (email: string): Promise<BreachData[]> =
   try {
     toast("Launching headless browser...");
     
-    // Launch a headless browser - fixing the headless option to use boolean
+    // Launch a headless browser
     const browser = await puppeteer.launch({ 
-      headless: true,
+      headless: 'new',
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     
@@ -40,8 +40,8 @@ export const checkEmailBreaches = async (email: string): Promise<BreachData[]> =
     // you might need to use a different approach
     await page.goto(`https://haveibeenpwned.com/unifiedsearch/${encodeURIComponent(email)}`);
     
-    // Using proper page.waitForTimeout replacement - setTimeout with promise
-    await new Promise(resolve => setTimeout(resolve, 2000));
+    // Wait for the page to load and extract data
+    await page.waitForTimeout(2000);
     
     // Get the page content which might contain breach data
     const content = await page.content();
