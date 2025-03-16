@@ -67,6 +67,47 @@ export default {
 					lime: '#32CD32',     // Lime green
 					matrix: '#003B00',   // Matrix dark green
 					glow: '#00FF00',     // Glowing terminal green
+				},
+				cyber: {
+					blue: '#0EA5E9',      // Bright cyber blue
+					purple: '#8B5CF6',    // Vivid purple
+					magenta: '#D946EF',   // Magenta pink
+					orange: '#F97316',    // Bright orange
+					yellow: '#FACC15',    // Electric yellow
+					red: '#EF4444',       // Danger red
+					teal: '#14B8A6',      // Teal
+					pink: '#EC4899',      // Neon pink
+					indigo: '#6366F1',    // Futuristic indigo
+				},
+				glitch: {
+					dark: '#0D0221',      // Deep space purple
+					primary: '#8864B3',   // Electric purple
+					secondary: '#5A189A', // Deep purple
+					accent: '#3F0071',    // Dark purple
+					highlight: '#BC00DD', // Bright purple
+					blue: '#190BF5',      // Glitch blue
+					pink: '#FB2576',      // Hot pink
+					teal: '#21E6C1',      // Electric teal
+					yellow: '#FFCC00',    // Warning yellow
+				},
+				retro: {
+					black: '#0A0A0A',      // Deep black
+					darkBlue: '#0000AA',   // Dark blue (DOS)
+					blue: '#0000FF',       // Classic blue
+					green: '#00AA00',      // Terminal green
+					cyan: '#00AAAA',       // Aqua cyan
+					red: '#AA0000',        // Dark red
+					magenta: '#AA00AA',    // Magenta
+					brown: '#AA5500',      // Brown
+					gray: '#AAAAAA',       // Light gray
+					darkGray: '#555555',   // Dark gray
+					brightBlue: '#5555FF', // Bright blue
+					brightGreen: '#55FF55', // Bright green
+					brightCyan: '#55FFFF', // Bright cyan
+					brightRed: '#FF5555',  // Bright red
+					brightMagenta: '#FF55FF', // Bright magenta
+					yellow: '#FFFF55',     // Yellow
+					white: '#FFFFFF',      // White
 				}
 			},
 			borderRadius: {
