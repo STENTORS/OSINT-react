@@ -1,6 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
+import { useTheme } from '@/context/ThemeContext';
 
 interface AnimatedTerminalProps {
   isSearching: boolean;
@@ -8,20 +9,21 @@ interface AnimatedTerminalProps {
 }
 
 const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) => {
+  const { theme } = useTheme();
   const [lines, setLines] = useState<string[]>([
-    "[root@vaporshell:~]# ./osint_init.sh",
-    "[root@vaporshell:~]# OSINT tool initialized...",
-    "[root@vaporshell:~]# Awaiting target parameters..."
+    "[root@hackershell:~]# ./osint_init.sh",
+    "[root@hackershell:~]# OSINT tool initialized...",
+    "[root@hackershell:~]# Awaiting target parameters..."
   ]);
   
   useEffect(() => {
     if (isSearching && searchParams) {
       const newLines = [
-        `[root@vaporshell:~]# TARGET ACQUIRED: ${searchParams.email || 'No email provided'}`,
-        "[root@vaporshell:~]# Establishing connection to darknet...",
-        "[root@vaporshell:~]# Scanning breach databases...",
-        "[root@vaporshell:~]# Bypassing security protocols...",
-        "[root@vaporshell:~]# Data mining in progress <|=======>",
+        `[root@hackershell:~]# TARGET ACQUIRED: ${searchParams.email || 'No email provided'}`,
+        "[root@hackershell:~]# Establishing connection to darknet...",
+        "[root@hackershell:~]# Scanning breach databases...",
+        "[root@hackershell:~]# Bypassing security protocols...",
+        "[root@hackershell:~]# Data mining in progress <|=======>",
       ];
       
       let timeoutId: NodeJS.Timeout;
@@ -39,7 +41,7 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
       
       return () => clearTimeout(timeoutId);
     } else if (!isSearching && searchParams) {
-      setLines(prev => [...prev, "[root@vaporshell:~]# Operation complete. Target data extracted."]);
+      setLines(prev => [...prev, "[root@hackershell:~]# Operation complete. Target data extracted."]);
     }
   }, [isSearching, searchParams]);
 
@@ -52,15 +54,51 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
     duration: 2 + Math.random() * 3,
     delay: Math.random() * 2
   }));
+  
+  // Theme-specific colors
+  const getThemeColors = () => {
+    switch (theme) {
+      case 'cyber':
+        return {
+          text: 'text-cyber-blue',
+          bg: 'bg-cyber-blue-dark',
+          border: 'border-cyber-blue/30',
+          highlight: 'text-cyber-blue'
+        };
+      case 'glitch':
+        return {
+          text: 'text-glitch-primary',
+          bg: 'bg-glitch-dark',
+          border: 'border-glitch-primary/30',
+          highlight: 'text-glitch-primary'
+        };
+      case 'retro':
+        return {
+          text: 'text-retro-brightGreen',
+          bg: 'bg-retro-darkBlue',
+          border: 'border-retro-brightGreen/30',
+          highlight: 'text-retro-brightGreen'
+        };
+      default: // hacker
+        return {
+          text: 'text-hacker',
+          bg: 'bg-hacker-dark',
+          border: 'border-hacker/30',
+          highlight: 'text-hacker'
+        };
+    }
+  };
+  
+  const colors = getThemeColors();
 
   return (
-    <div className="terminal-container relative h-[256px] overflow-hidden border-neon-pink/30 bg-terminal-dark">
-      <div className="terminal-header bg-gradient-to-r from-neon-purple to-neon-pink px-2 py-1 flex items-center">
-        <span className="text-xs text-white font-mono">root@vaporshell:~ | breach_hunter v1.0</span>
+    <div className={`terminal-container relative h-[256px] overflow-hidden border-${colors.border}`}>
+      <div className={`terminal-header ${colors.bg} px-2 py-1 flex items-center`}>
+        <span className={`text-xs ${colors.text} font-mono`}>root@hackershell:~ | breach_hunter v1.0</span>
         <div className="ml-auto flex items-center gap-1">
-          <span className="text-xs text-white">_</span>
-          <span className="text-xs text-white">□</span>
-          <span className="text-xs text-white">✕</span>
+          <span className={`text-xs ${colors.text}`}>_</span>
+          <span className={`text-xs ${colors.text}`}>□</span>
+          <span className={`text-xs ${colors.text}`}>✕</span>
         </div>
       </div>
       
@@ -69,7 +107,7 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
         {matrixCharacters.map((char) => (
           <div 
             key={char.id}
-            className="matrix-character text-neon-teal"
+            className="matrix-character"
             style={{
               left: `${char.x}%`,
               animationDuration: `${char.duration}s`,
@@ -88,7 +126,7 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className={`text-xs md:text-sm mb-1.5 ${index % 3 === 0 ? 'text-neon-teal' : index % 3 === 1 ? 'text-neon-purple' : 'text-neon-pink'}`}
+            className={`text-xs md:text-sm mb-1.5 ${colors.text}`}
           >
             {line}
           </motion.div>
@@ -101,8 +139,8 @@ const AnimatedTerminal = ({ isSearching, searchParams }: AnimatedTerminalProps) 
             transition={{ duration: 0.3 }}
             className="flex items-center"
           >
-            <span className="text-xs md:text-sm text-neon-pink">[root@vaporshell:~]# </span>
-            <span className="ml-1 h-3 w-3 animate-pulse bg-neon-teal"></span>
+            <span className={`text-xs md:text-sm ${colors.text}`}>[root@hackershell:~]# </span>
+            <span className={`ml-1 h-3 w-3 animate-pulse`} style={{ backgroundColor: 'currentColor' }}></span>
           </motion.div>
         )}
       </div>
